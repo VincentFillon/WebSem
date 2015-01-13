@@ -176,6 +176,8 @@ function testAPI() {
         document.forms["connexion-fb"].submit();
     });
 }
+
+// ================================ Pictionary Canvas ================================
 // les quatre tailles de pinceau possible.  
     var sizes=[8,20,44,90];  
     // la taille et la couleur du pinceau  
@@ -208,10 +210,10 @@ function testAPI() {
     }
 
     window.onload = function() {  
-        var canvas = document.getElementById('canvasPictionary');  
-        canvas.width = 900;  
-        canvas.height= 400;  
+        var canvas = document.getElementById('canvasPictionary'); 
         var context = canvas.getContext('2d');  
+        canvas.width = document.getElementById('sizeCanvas').offsetWidth;  
+        canvas.height= 400; 
 
         setSize();  
         setColor();  
@@ -234,7 +236,7 @@ function testAPI() {
             context.beginPath();
             context.lineWidth=1;
             context.strokeStyle="rgba("+command.color.r+","+command.color.g+","+command.color.b+","+command.color.a+")";
-            context.arc(command.x, command.y, command.size, 0, 2 * Math.PI);
+            context.arc(command.x, command.y - 186, command.size, 0, 2 * Math.PI);
             context.stroke();
             // ici, dessinez un cercle de la bonne couleur, de la bonne taille, et au bon endroit.   
 

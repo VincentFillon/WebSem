@@ -1,8 +1,12 @@
-<div style="background-color:white; text-align:center;">
-	<canvas id="canvasPictionary" width="900" height="400" > 
-		Votre navigateur ne peut pas faire de dessins ! Faîte une mise à jour ou changer de navigateur.
-	</canvas>
+<div class="row" id="sizeCanvas">
+	<div class="col-sm-12">
+		<canvas id="canvasPictionary" style="background-color:white; text-align:center;" > 
+			Votre navigateur ne peut pas faire de dessins ! Faîte une mise à jour ou changer de navigateur.
+		</canvas>
+	</div>
 </div>
+
+
 <div class="row">
 	<form name="tools" action="req_paint.php" method="post">  
 	    <div class="form-group">
