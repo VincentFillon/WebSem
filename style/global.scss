@@ -7,6 +7,7 @@ body {
   font-family: Century Gothic;
 
   header {
+    z-index: 2;
     height: 80px;
     width: 100%;
     background: black;
@@ -27,6 +28,7 @@ body {
   }
 
   section {
+    z-index: 1;
     color: white;
     .spacer {
       height: 20px;
@@ -47,6 +49,7 @@ body {
   }
 
   footer {
+    z-index: 2;
     height: 80px;
     width: 100%;
     background: black;
