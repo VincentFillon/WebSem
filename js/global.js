@@ -176,8 +176,6 @@ function testAPI() {
         document.forms["connexion-fb"].submit();
     });
 }
-
-<<<<<<< HEAD
 // les quatre tailles de pinceau possible.  
     var sizes=[8,20,44,90];  
     // la taille et la couleur du pinceau  
@@ -272,10 +270,8 @@ function testAPI() {
             // ici, exportez le contenu du canvas dans un data url, et ajoutez le en valeur au champs "picture" pour l'envoyer au serveur.  
         };  
     };  
-=======
 function logout() {
     FB.logout(function(response) {
         // user is now logged out
     });
 }
->>>>>>> FETCH_HEAD

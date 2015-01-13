@@ -8,7 +8,7 @@ Bienvenue sur l'application Pictionnary
 <div class="row">
 	<form name="tools" action="req_paint.php" method="post">  
 	    <div class="form-group">
-        	<label for="size" class="col-sm-1">Epaisseur</label> 
+        	<label for="size" class="col-sm-1">Taille</label> 
         	<div class="col-sm-3">
 	    		<input type="range" min="0" max="3" step="1" value="0" oninput="this.form.taille.value=this.value" class="form-control" id="size">
 	    	</div>
