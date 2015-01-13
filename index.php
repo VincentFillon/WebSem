@@ -16,7 +16,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="LPSIL IDSE - TP Web Sémantique">
-        <meta name="author" content="Fillon Vincent">
+        <meta name="author" content="Fillon Vincent-Passe Valentin- Pacheco Melanie">
         <!-- TODO   =>  Choisir un favicon et le placer dans le dossier img/
         <link rel="shortcut icon" href="img/favicon.ico"/>
         -->
@@ -62,6 +62,10 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
 
                 if ( isset($_SESSION['prenom'])) {
                     echo 'Bonjour '.$_SESSION['prenom'].', ';
+                    ?>
+                    <br><br>
+                    <a href="TestMap.html" type="button" class="btn btn-primary btn-lg">Accéder au Maps Seisme</a>
+                <?php
                 }
 
                 if ( isset($page) ) {
@@ -71,6 +75,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
                     include('templates/index.tpl');
                 }
                 ?>
+
             </div>
         </section>
         <footer>
