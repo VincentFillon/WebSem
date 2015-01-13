@@ -53,7 +53,6 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
         </header>
         <section>
             <div class="container">
-
                 <!-- Contenu importé depuis les differentes pages : "nom_page".tpl -->
                 <?php
 
@@ -72,7 +71,6 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
                     include('templates/index.tpl');
                 }
                 ?>
-
             </div>
         </section>
         <footer>
