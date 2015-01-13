@@ -3,7 +3,7 @@
     // les quatre tailles de pinceau possible.  
     var sizes=[8,20,44,90];  
     // la taille et la couleur du pinceau  
-    var size = 8;
+    var size = 0;
     var color;  
     // la dernière position du stylo  
     var x0, y0;  
@@ -84,7 +84,7 @@
 
         document.getElementById('restart').onclick = function() {  
             console.log("clear");  
-            context.clearRect(900, 400, 1, 1);
+            context.clearRect ( 0 , 0 , canvas.width, canvas.height );
         };  
 
         document.getElementById('validate').onclick = function() {  
