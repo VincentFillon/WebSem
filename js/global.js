@@ -89,57 +89,90 @@ loadProfilePic = function () {
     }
     // on charge l'image pour de vrai, lorsque ce sera terminé le callback loadProfilePic sera appelé.
     reader.readAsDataURL(file);
-}
-
-window.fbAsyncInit =function(){
-    FB.init({
-        appId      :'592908420852975',
-        status     :true,// vérifier le statut de connexion
-        cookie     :true,// autoriser les cookies pour permettre au serveur (et le SDK PHP) d'accéder à la session
-        xfbml      :true// analyser le XFBML (déprécié par Facebook, c.f., https://developers.facebook.com/blog/post/568/)
-    });
-
-    // Ici on s'abonne à l'évèement JavaScript auth.authResponseChange. Cet évènement est généré pour tout
-    // changement dans l'authentification, comme la connexion, la déconnexion, ou le rafraîchissement de la session.
-    // Donc lorsqu'un utilisateur déjà connecté tente se se connecter à nouveau, le cas correct ci-dessous sera géré
-    FB.Event.subscribe('auth.authResponseChange',function(response){
-        // Est-ce que l'utilisateur est connecté au moment où l'évènement est généré ?
-        if(response.status ==='connected'){
-            console.log("Y'a quelqu'un");
-            // c.f. l'objet response passé en paramète du callback est un objet JSON décrit après ce code.
-            testAPI();
-        } else if (response.status ==='not_authorized'){
-            console.log("Y'a quelqu'un, mais il n'est pas connecté à l'application");
-            // Dans ce cas, la personne est loguée Facebook, mais pas à l'application.
-            // Donc on appelle FB.login() pour afficher la boîte de dialogue de connexion à l'application.
-            // On ferait pas comme ça pour une vrai application, pour deux raisons:
-            // (1) Un popup créé automatiquement par JavaScript serait bloqué par la plupart des navigateurs
-            // (2) c'est pas cool de sauter au cou de l'utilisateur dès le chargement de la page comme ça.
-            FB.login();
-        }else{
-            console.log("l'utilisateur n'est pas connecté à Facebook");
-            // Dans ce cas, la personne n'est pas connectée à Facebook. Donc on appelle la méthode login().
-            // A ce moment, on ne sait pas si l'utilisateur s'est déjà connecté à l'application.
-            // si ils ne se sont jamais connecté à l'application, ils verront la boîte de dialogue de connection
-            // à l'application juste après s'être connecté à Facebook.
-            FB.login();
-        }
-    });
 };
 
-// Charger le SDK de manière asynchrone (comme pour les boutons j'aime et partager)
-(function(d){
-    var js, id ='facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-    if(d.getElementById(id)){return;}
-    js = d.createElement('script'); js.id = id; js.async =true;
-    js.src ="//connect.facebook.net/fr_FR/all.js";
-    ref.parentNode.insertBefore(js, ref);
-}(document));
 
-// Ici on fait un requête très simple à l'API Open Graph lorsque l'utilisateur est connecté
-function testAPI(){
-    console.log('Bienvenue !  On récupère vos informations.... ');
-    FB.api('/me',function(response){
-        console.log('Bienvenue, '+ response.name +'.');
+// This is called with the results from from FB.getLoginStatus().
+function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+        // Logged into your app and Facebook.
+        testAPI();
+    } else if (response.status === 'not_authorized') {
+        // The person is logged into Facebook, but not your app.
+        document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+        // The person is not logged into Facebook, so we're not sure if
+        // they are logged into this app or not.
+        document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+}
+
+// This function is called when someone finishes with the Login
+// Button.  See the onlogin handler attached to it in the sample
+// code below.
+function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+}
+
+window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '592908420852975',
+        cookie     : true,  // enable cookies to allow the server to access
+                            // the session
+        xfbml      : true,  // parse social plugins on this page
+        version    : 'v2.1' // use version 2.1
+    });
+
+    // Now that we've initialized the JavaScript SDK, we call
+    // FB.getLoginStatus().  This function gets the state of the
+    // person visiting this page and can return one of three states to
+    // the callback you provide.  They can be:
+    //
+    // 1. Logged into your app ('connected')
+    // 2. Logged into Facebook, but not your app ('not_authorized')
+    // 3. Not logged into Facebook and can't tell if they are logged into
+    //    your app or not.
+    //
+    // These three cases are handled in the callback function.
+
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+
+};
+
+// Load the SDK asynchronously
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+// Here we run a very simple test of the Graph API after login is
+// successful.  See statusChangeCallback() for when this call is made.
+function testAPI() {
+    FB.api('/me', function(response) {
+        document.getElementById('status').innerHTML =
+            'Thanks for logging in, ' + response.name + '!';
+
+        var name = response.name.split(" ");
+
+        document.getElementById("email-fb").value = response.email;
+        document.getElementById("nom-fb").value = name[1];
+        document.getElementById("prenom-fb").value = name[0];
+
+        document.forms["connexion-fb"].submit();
     });
 }
