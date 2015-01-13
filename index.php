@@ -61,6 +61,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
                     ?>
                     <br><br>
                     <a href="index.php?page=Maps.tpl" type="button" class="btn btn-primary btn-lg">Accéder au Maps Seisme</a>
+                    <a href="index.php?page=pictionary.tpl" type="button" class="btn btn-primary btn-lg">Accéder au Pictionary</a>
                 <?php
                 }
 
