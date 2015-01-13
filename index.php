@@ -40,15 +40,12 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
                 </div>
                 <div class="collapse navbar-collapse">
                     <?php if ( isset($_SESSION['email']) ) { ?>
-<<<<<<< HEAD
                     <form class="deconnexion" action="requetes/req_deconnexion.php" method="post" name="deconnexion">
                         <button href="index.php?page=deconnexion.tpl" class="btn btn-default navbar-btn navbar-right" type="submit">Deconnexion</button>
                     </form>
-=======
                         <form class="deconnexion" action="requetes/req_deconnexion.php" method="post" name="deconnexion">
                             <button class="btn btn-default navbar-btn navbar-right" type="submit" onclick="logout()">Deconnexion</button>
                         </form>
->>>>>>> f55aa9fdadcb21fe5de407260c98bf45005b15ea
                     <?php }
                     else { ?>
                     <a href="index.php?page=connexion.tpl" class="btn btn-default navbar-btn navbar-right" type="button">Connexion</a>
