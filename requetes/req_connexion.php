@@ -6,13 +6,13 @@
  * Time: 08:18
  */
 
+//inclusion du fichier connexion base de données
+include('../config/connexionBDD.php');
+
 $email=stripslashes($_POST['email']);
 $password=stripslashes($_POST['password']);
 
 try {
-    // Connect to server and select database.
-    $dbh = new PDO('mysql:host=localhost;dbname=websemantique', 'test', 'test');
-
     // En SQL: sélectionner tous les tuples de la table USERS tels que l'email est égal à $email et tels que le password est égal à $password.
     $sql = $dbh->query("SELECT * FROM users WHERE email='".$email."' AND password='".$password."'");
     if ($sql->rowCount() < 1) {

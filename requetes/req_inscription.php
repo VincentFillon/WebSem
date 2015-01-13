@@ -6,6 +6,9 @@
  * Time: 08:18
  */
 
+//inclusion du fichier connexion base de données
+include('../config/connexionBDD.php');
+
 // récupérer les éléments du formulaire
 // et se protéger contre l'injection MySQL (plus de détails ici: http://us.php.net/mysql_real_escape_string)
 $email=stripslashes($_POST['email']);
@@ -22,9 +25,6 @@ $couleur=stripslashes($_POST['couleur']);
 $profilepic=stripslashes($_POST['profilepic']);
 
 try {
-    // Connect to server and select database.
-    $dbh = new PDO('mysql:host=localhost;dbname=websemantique', 'test', 'test');
-
     // Vérifier si un utilisateur avec cette adresse email existe dans la table.
     // En SQL: sélectionner tous les tuples de la table USERS tels que l'email est égal à $email.
     $sql = $dbh->query("SELECT * FROM users WHERE email='".$email."'");
