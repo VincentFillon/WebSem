@@ -176,3 +176,9 @@ function testAPI() {
         document.forms["connexion-fb"].submit();
     });
 }
+
+function logout() {
+    FB.logout(function(response) {
+        // user is now logged out
+    });
+}

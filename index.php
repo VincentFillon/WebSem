@@ -42,7 +42,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
                 <div class="collapse navbar-collapse">
                     <?php if ( isset($_SESSION['email']) ) { ?>
                         <form class="deconnexion" action="requetes/req_deconnexion.php" method="post" name="deconnexion">
-                            <button class="btn btn-default navbar-btn navbar-right" type="submit">Deconnexion</button>
+                            <button class="btn btn-default navbar-btn navbar-right" type="submit" onclick="logout()">Deconnexion</button>
                         </form>
                     <?php }
                     else { ?>
