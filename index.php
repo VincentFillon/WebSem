@@ -74,7 +74,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
             </div>
         </section>
         <footer>
-            LPSIL IDSE - WebSemantique - Projet Pictionnary - Année 2014 / 2015 - FILLON Vincent
+            LPSIL IDSE - WebSemantique - Projet Pictionnary - Année 2014 / 2015 - FILLON Vincent && Pacheco Mélanie
         </footer>
     </body>
 
