@@ -1,0 +1,57 @@
+// Global SCSS
+
+body {
+  background: url("../img/fond.png") no-repeat;
+  background-size: cover;
+
+  font-family: Century Gothic;
+
+  header {
+    height: 80px;
+    width: 100%;
+    background: black;
+    position: fixed;
+    top: 0;
+
+    #titre {
+      color: white;
+      padding: 6px;
+      font-size: 48px;
+    }
+
+    #connexion {
+      text-align: right;
+      padding: 10px;
+    }
+  }
+
+  section {
+    color: white;
+    .spacer {
+      height: 20px;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: white;
+    }
+
+    .inscription, .connexion {
+      border: 1px solid rgb(204, 204, 204);
+      border-radius: 5px;
+      background: #eee;
+      padding: 20px;
+    }
+  }
+
+  footer {
+    height: 80px;
+    width: 100%;
+    background: black;
+    color: white;
+    line-height: 80px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+  }
+}

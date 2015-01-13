@@ -1,0 +1,40 @@
+body {
+  background: url("../img/fond.png") no-repeat;
+  background-size: cover;
+  font-family: Century Gothic; }
+  body header {
+    height: 80px;
+    width: 100%;
+    background: black;
+    position: fixed;
+    top: 0; }
+    body header #titre {
+      color: white;
+      padding: 6px;
+      font-size: 48px; }
+    body header #connexion {
+      text-align: right;
+      padding: 10px; }
+  body section {
+    color: white; }
+    body section .spacer {
+      height: 20px; }
+    body section h1 {
+      font-size: 48px;
+      color: white; }
+    body section .inscription, body section .connexion {
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      background: #eee;
+      padding: 20px; }
+  body footer {
+    height: 80px;
+    width: 100%;
+    background: black;
+    color: white;
+    line-height: 80px;
+    text-align: center;
+    position: fixed;
+    bottom: 0; }
+
+/*# sourceMappingURL=global.css.map */
