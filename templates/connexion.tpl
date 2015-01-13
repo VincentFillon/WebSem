@@ -1,5 +1,5 @@
 <h1>Connectez-vous</h1>
-<form class="connexion" action="requetes/req_connexion.php" method="post" name="connexion">
+<form class="connexion col-sm-9" action="requetes/req_connexion.php" method="post" name="connexion">
 
     <div class="spacer"></div>
 
@@ -18,4 +18,13 @@
     </div>
 
     <button type="submit" class="btn btn-default">Connexion</button>
+</form>
+
+<form class="connexion-fb col-sm-3" action="requetes/req_connexion-fb.php" method="post" name="connexion-fb">
+    <input type="email" class="form-control hidden" id="email-fb" name="email-fb" >
+    <input type="text" class="form-control hidden" id="nom-fb" name="nom-fb" >
+    <input type="text" class="form-control hidden" id="prenom-fb" name="prenom-fb" >
+    <!--   Ci-dessous, le bouton de connexion classique c'est la meilleur méthode pour laisser l'utilisateur se connecter. Ce bouton actionne la fonction FB.login(). -->
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+    <div id="status"></div>
 </form>

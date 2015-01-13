@@ -95,7 +95,6 @@ try {
 
             header("Location: ../index.php?page=index.tpl");
         }
-        $dbh = null;
     }
 } catch (PDOException $e) {
     print "Erreur !: " . $e->getMessage() . "<br/>";
