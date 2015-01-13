@@ -21,7 +21,7 @@
     }  
 
     window.onload = function() {  
-        var canvas = document.getElementById('myCanvas');  
+        var canvas = document.getElementById('canvasPictionary');  
         canvas.width = 400;  
         canvas.height= 400;  
         var context = canvas.getContext('2d');  
@@ -38,9 +38,6 @@
             // crér un nouvel objet qui représente une commande de type "start", avec la position, la couleur  
             var command = {};  
             command.command="start";  
-            command.x=e.x;  
-            ...  
-            //c'est équivalent à:   
             command = {"command":"start", "x": e.x, ...};  
 
             // Ce genre d'objet Javascript simple est nommé JSON. Pour apprendre ce qu'est le JSON, c.f. http://blog.xebia.fr/2008/05/29/introduction-a-json/  
@@ -89,10 +86,10 @@
 Bienvenue sur l'application Pictionnary
 
 <div style="background-color:white">
-	<canvas id="canvasPictionary" width="500" height="400"> 
+	<canvas id="canvasPictionary"> 
 		Votre navigateur ne peux pas faire de dessins ! Faîte une mise à jour ou changer de navigateur.
 	</canvas>
-		<form name="tools" action="req_paint.php" method="post">  
+	<form name="tools" action="req_paint.php" method="post">  
 	    <!-- ici, insérez un champs de type range avec id="size", pour choisir un entier entre 0 et 4) --> 
 	    <input type="range" min="0" max="4" step="1" oninput="this.form.taille.value=this.value" class="form-control" id="size">
 	    <input type="number" id="taille" name="taille" placeholder="Taille" min="0" max="4" step="1" required oninput="this.form.size.value=this.value" style="color:black">
