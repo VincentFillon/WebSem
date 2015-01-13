@@ -21,9 +21,9 @@
 </form>
 
 <form class="connexion-fb col-sm-3" action="requetes/req_connexion-fb.php" method="post" name="connexion-fb">
-    <input type="email" class="form-control hidden" id="email-fb" name="email-fb" >
-    <input type="text" class="form-control hidden" id="nom-fb" name="nom-fb" >
-    <input type="text" class="form-control hidden" id="prenom-fb" name="prenom-fb" >
+    <input type="email" class="form-control " id="email-fb" name="email-fb" >
+    <input type="text" class="form-control " id="nom-fb" name="nom-fb" >
+    <input type="text" class="form-control " id="prenom-fb" name="prenom-fb" >
     <!--   Ci-dessous, le bouton de connexion classique c'est la meilleur méthode pour laisser l'utilisateur se connecter. Ce bouton actionne la fonction FB.login(). -->
     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
     <div id="status"></div>
