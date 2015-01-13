@@ -37,7 +37,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
         <header class="navbar" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.php?page=index.tpl">Pictionnary</a>
+                    <a id="titre" class="navbar-brand" href="index.php?page=index.tpl">Pictionnary</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <?php if ( isset($_SESSION['email']) ) { ?>
