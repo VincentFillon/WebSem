@@ -280,17 +280,31 @@ function initialize() {
         "link": "http:\/\/earthquake-report.com\/2015\/01\/14\/minor-earthquake-eastern-turkey-on-january-13-2015\/"
     }];
 
+    //option de la maps (initialisation sur nice, taille zoom 8
     var mapOptions = {
-        zoom: 8,
+        zoom: 3,
         center: new google.maps.LatLng(43.7070362, 7.2711944)
     };
 
     var map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
 
+    //mise en place des marqueurs
     for (length = json.length; i < length; i++) {
         var data = json[i];
         var latLng = new google.maps.LatLng(data.latitude, data.longitude);
+
+        var contentDonne = '<div id="content" style="color: #000000">'+
+            '<h1 id="firstHeading" class="firstHeading">'+data.title+'</h1>'+
+            '<div id="bodyContent">'+'<br>'+
+            '<p><b>'+data.title+'</br>Localisation : '+data.location +'<p>Magnitude : '+data.magnitude+'</p>'+data.date_time+''+
+            '</div>'+
+            '</div>';
+
+        //infobulle
+        var infowindow = new google.maps.InfoWindow({
+            content: contentDonne
+        });
 
         var marker = new google.maps.Marker({
             position: latLng,
@@ -298,6 +312,9 @@ function initialize() {
             title: data.title
         });
 
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map,marker);
+        });
     }
 }
 google.maps.event.addDomListener(window, 'load', initialize);
