@@ -40,9 +40,9 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
                 </div>
                 <div class="collapse navbar-collapse">
                     <?php if ( isset($_SESSION['email']) ) { ?>
-                        <a href="index.php?page=Maps.tpl" type="button" class="btn btn-primary navbar-btn btn-lg">Maps Seisme</a>
-                        <a href="index.php?page=pictionary.tpl" type="button" class="btn btn-primary navbar-btn btn-lg">Pictionary</a>
                         <form class="deconnexion" action="requetes/req_deconnexion.php" method="post" name="deconnexion">
+                            <a href="index.php?page=Maps.tpl" type="button" class="btn btn-default navbar-btn">Maps Seisme</a>
+                            <a href="index.php?page=pictionary.tpl" type="button" class="btn btn-default navbar-btn">Pictionary</a>
                             <button class="btn btn-default navbar-btn navbar-right" type="submit" onclick="logout()">Deconnexion</button>
                         </form>
                     <?php }
