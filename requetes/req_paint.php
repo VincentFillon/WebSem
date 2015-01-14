@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
+ * Created by SublimeText2.
  * User: Valentin
  * Date: 14/01/2015
  * Time: 10:52
@@ -30,11 +30,23 @@ try {
             $err = $sql->errorInfo();
             print_r($err);
         }
-        header("Location: ../index.php?page=pictionary.tpl");
+
+        $sql = $dbh->query("SELECT d.id FROM drawings d WHERE d.drawingCommands='".$drawingCommands."' AND d.idUser='".$idUser."'");
+        if ($sql->rowCount()<1) {
+            header("Location: ../index.php?erreur=".urlencode("un problème est survenu"));
+        }
+        else {
+            $sqlfetch = $sql->fetch();
+            $id = $sqlfetch['id'];
+            header("Location: ../index.php?page=pictionary.tpl&id=".$id);
+        }
 } 
 catch (PDOException $e) {
     print "Erreur !: " . $e->getMessage() . "<br/>";
     $dbh = null;
     die();
 }
+
+
+
 ?>
