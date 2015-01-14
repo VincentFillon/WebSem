@@ -236,7 +236,7 @@ function testAPI() {
             context.beginPath();
             context.lineWidth=1;
             context.strokeStyle="rgba("+command.color.r+","+command.color.g+","+command.color.b+","+command.color.a+")";
-            context.arc(command.x, command.y - 186, command.size, 0, 2 * Math.PI);
+            context.arc(command.x, command.y, command.size, 0, 2 * Math.PI);
             context.stroke();
             // ici, dessinez un cercle de la bonne couleur, de la bonne taille, et au bon endroit.   
 
@@ -277,3 +277,26 @@ function logout() {
         // user is now logged out
     });
 }
+
+
+// GOOGLE MAPS
+
+function initialize() {
+    var mapOptions = {
+        zoom: 8,
+        center: new google.maps.LatLng(-34.397, 150.644)
+    };
+
+    var map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+}
+
+function loadScript() {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+    'callback=initialize';
+    document.body.appendChild(script);
+}
+
+window.onload = loadScript;

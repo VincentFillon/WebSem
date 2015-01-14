@@ -1,62 +1,72 @@
 // Global SCSS
 
-body {
-  background: url("../img/fond.png") no-repeat;
-  background-size: cover;
+html {
+  height: 100%;
 
-  font-family: Century Gothic;
+  body {
+    background: url("../img/fond.png") no-repeat;
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    padding: 0 ;
+    font-family: Century Gothic;
 
-  header {
-    z-index: 2;
-    height: 80px;
-    width: 100%;
-    background: black;
-    position: fixed;
-    top: 0;
-
-    #titre {
-      color: white;
+    header {
+      z-index: 2;
       height: 80px;
-      line-height: 40px;
-      font-size: 28px;
+      width: 100%;
+      background: black;
+      position: fixed;
+      top: 0;
+
+      #titre {
+        color: white;
+        height: 80px;
+        line-height: 40px;
+        font-size: 28px;
+      }
+
+      #connexion {
+        text-align: right;
+        padding: 10px;
+      }
     }
 
-    #connexion {
-      text-align: right;
-      padding: 10px;
-    }
-  }
-
-  section {
-    z-index: 1;
-    color: white;
-    .spacer {
-      height: 20px;
-    }
-
-    h1 {
-      font-size: 48px;
+    section {
+      z-index: 1;
       color: white;
+      .spacer {
+        height: 20px;
+      }
+
+      h1 {
+        font-size: 48px;
+        color: white;
+      }
+
+      .inscription, .connexion {
+        color: black;
+        border: 1px solid rgb(204, 204, 204);
+        border-radius: 5px;
+        background: #eee;
+        padding: 20px;
+      }
+
+      #map-canvas {
+        height: 500px;
+      }
     }
 
-    .inscription, .connexion {
-      color: black;
-      border: 1px solid rgb(204, 204, 204);
-      border-radius: 5px;
-      background: #eee;
-      padding: 20px;
+    footer {
+      z-index: 2;
+      height: 80px;
+      width: 100%;
+      background: black;
+      color: white;
+      line-height: 80px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
     }
-  }
-
-  footer {
-    z-index: 2;
-    height: 80px;
-    width: 100%;
-    background: black;
-    color: white;
-    line-height: 80px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
   }
 }
