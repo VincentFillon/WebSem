@@ -1,45 +1,55 @@
-body {
-  background: url("../img/fond.png") no-repeat;
-  background-size: cover;
-  font-family: Century Gothic; }
-  body header {
-    z-index: 2;
-    height: 80px;
-    width: 100%;
-    background: black;
-    position: fixed;
-    top: 0; }
-    body header #titre {
-      color: white;
+html {
+  height: 100%; }
+  html body {
+    background: url("../img/fond.png") no-repeat;
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Century Gothic; }
+    html body header {
+      z-index: 2;
       height: 80px;
+      width: 100%;
+      background: black;
+      position: fixed;
+      top: 0; }
+      html body header #titre {
+        color: white;
+        height: 80px;
+        line-height: 40px;
+        font-size: 28px; }
+      html body header #connexion {
+        text-align: right;
+        padding: 10px; }
+      html body header .deconnexion {
+        padding-top: 10px; }
+    html body section {
+      z-index: 1;
+      color: white;
+      padding-bottom: 80px; }
+      html body section .spacer {
+        height: 20px; }
+      html body section h1 {
+        font-size: 48px;
+        color: white; }
+      html body section .inscription, html body section .connexion {
+        color: black;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        background: #eee;
+        padding: 20px; }
+      html body section #map-canvas {
+        height: 500px; }
+    html body footer {
+      z-index: 2;
+      height: 40px;
+      width: 100%;
+      background: black;
+      color: white;
       line-height: 40px;
-      font-size: 28px; }
-    body header #connexion {
-      text-align: right;
-      padding: 10px; }
-  body section {
-    z-index: 1;
-    color: white; }
-    body section .spacer {
-      height: 20px; }
-    body section h1 {
-      font-size: 48px;
-      color: white; }
-    body section .inscription, body section .connexion {
-      color: black;
-      border: 1px solid #cccccc;
-      border-radius: 5px;
-      background: #eee;
-      padding: 20px; }
-  body footer {
-    z-index: 2;
-    height: 80px;
-    width: 100%;
-    background: black;
-    color: white;
-    line-height: 80px;
-    text-align: center;
-    position: fixed;
-    bottom: 0; }
+      text-align: center;
+      position: fixed;
+      bottom: 0; }
 
 /*# sourceMappingURL=global.css.map */
