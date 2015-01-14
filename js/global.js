@@ -227,15 +227,13 @@ function testAPI() {
             // crér un nouvel objet qui représente une commande de type "start", avec la position, la couleur  
             var command = {};  
             command.command="start";  
-            command = {"command":"start", "x": (e.x - document.getElementById('Container').offsetLeft - document.getElementById('canvasPictionary').offsetLeft), "y":e.y, "size" : size, "color" : {"r" : hexToRgb(color).r, "g" : hexToRgb(color).g, "b" : hexToRgb(color).b, "a" : 0.9}};  
+            command = {"command":"start", "x": (e.x - document.getElementById('Container').offsetLeft - document.getElementById('canvasPictionary').offsetLeft), "y":(e.y - document.getElementById('Container').offsetTop - document.getElementsByTagName('header')[0].offsetHeight), "size" : size, "color" : {"r" : hexToRgb(color).r, "g" : hexToRgb(color).g, "b" : hexToRgb(color).b, "a" : 0.9}};  
             // Ce genre d'objet Javascript simple est nommé JSON. Pour apprendre ce qu'est le JSON, c.f. http://blog.xebia.fr/2008/05/29/introduction-a-json/  
 
             // on l'ajoute à la liste des commandes  
             drawingCommands.push(command);
+            console.log("Taille : "+command.size+" Couleur : " + "rgba("+command.color.r+","+command.color.g+","+command.color.b+","+command.color.a+")" + " x : "+ command.x + " y : "+ command.y);            
 
-            console.log("Taille : "+command.size+" Couleur : " + "rgba("+command.color.r+","+command.color.g+","+command.color.b+","+command.color.a+")" + " x : "+ command.x + " y : "+ command.y);
-            console.log("taille ecran :" + window.innerWidth+ " taille canvas :"+ canvas.width+ " position x :"+command.x+ " div left:"+document.getElementById('canvasPictionary').offsetLeft);
-            console.log("point dessin ecran :" + (command.x + document.getElementById('canvasPictionary').offsetLeft + document.getElementById('Container').offsetLeft));
 
             context.beginPath();
             context.lineWidth=1;
