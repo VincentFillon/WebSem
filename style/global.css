@@ -41,6 +41,8 @@ html {
         padding: 20px; }
       html body section #map-canvas {
         height: 500px; }
+      html body section input {
+        color: black; }
     html body footer {
       z-index: 2;
       height: 40px;
