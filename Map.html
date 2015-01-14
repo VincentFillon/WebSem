@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>Web Semantiques LPSIL IDSE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LPSIL IDSE - TP Web Sémantique">
+    <meta name="author" content="Fillon Vincent-Passe Valentin- Pacheco Melanie">
+    <!-- Local Bootstrap core CSS -->
+    <link href="bootstrap-3.3.1/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="style/global.css" rel="stylesheet">S
+    <style type="text/css">
+        html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfJL3M19Gdb4RTyDED_H3dfSmpCJhblNo">
+    </script>
+    <script type="text/javascript">
+        function initialize() {
+            var mapOptions = {
+                center: { lat: -34.397, lng: 150.644},
+                zoom: 8
+            };
+            var map = new google.maps.Map(document.getElementById('map-canvas'),
+                    mapOptions);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+<body>
+<header class="navbar" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a id="titre" class="navbar-brand" href="index.php?page=index.tpl">Pictionnary</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <?php if ( isset($_SESSION['email']) ) { ?>
+            <form class="deconnexion" action="requetes/req_deconnexion.php" method="post" name="deconnexion">
+                <button class="btn btn-default navbar-btn navbar-right" type="submit" onclick="logout()">Deconnexion</button>
+            </form>
+            <?php }
+                    else { ?>
+            <a href="index.php?page=connexion.tpl" class="btn btn-default navbar-btn navbar-right" type="button">Connexion</a>
+            <a href="index.php?page=inscription.tpl" class="btn btn-default navbar-btn navbar-right" type="button">Inscription</a>
+            <?php } ?>
+        </div>
+    </div>
+</header>
+<div id="map-canvas"></div>
+<footer>
+    LPSIL IDSE - WebSemantique - Projet Pictionnary - Année 2014 / 2015 - FILLON Vincent & Pacheco Mélanie & Passé Valentin
+</footer>
+</body>
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+<!-- Local Bootstrap core JavaScript -->
+<script src="bootstrap-3.3.1/js/bootstrap.min.js"></script>
+</html>

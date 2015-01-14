@@ -52,7 +52,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
             </div>
         </header>
         <section>
-            <div class="container">
+            <div class="container" id="Container">
                 <!-- Contenu importé depuis les differentes pages : "nom_page".tpl -->
                 <?php
 
@@ -60,7 +60,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
                     echo 'Bonjour '.$_SESSION['prenom'].', ';
                     ?>
                     <br><br>
-                    <a href="index.php?page=Maps.tpl" type="button" class="btn btn-primary btn-lg">Accéder au Maps Seisme</a>
+                    <a href="Map.html" type="button" class="btn btn-primary btn-lg">Accéder au Maps Seisme</a>
                     <a href="index.php?page=pictionary.tpl" type="button" class="btn btn-primary btn-lg">Accéder au Pictionary</a>
                 <?php
                 }

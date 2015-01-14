@@ -1,6 +1,6 @@
 <div class="row" id="sizeCanvas">
 	<div class="col-sm-12">
-		<canvas id="canvasPictionary" style="background-color:white; text-align:center;" > 
+		<canvas id="canvasPictionary" style="background-color:white;" > 
 			Votre navigateur ne peut pas faire de dessins ! Faîte une mise à jour ou changer de navigateur.
 		</canvas>
 	</div>
