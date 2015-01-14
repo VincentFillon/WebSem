@@ -285,7 +285,7 @@ function logout() {
 
 // GOOGLE MAPS
 
-function initialize() {
+function initialize() { 
     var mapOptions = {
         zoom: 8,
         center: new google.maps.LatLng(-34.397, 150.644)
@@ -302,5 +302,4 @@ function loadScript() {
     'callback=initialize';
     document.body.appendChild(script);
 }
-
 window.onload = loadScript;

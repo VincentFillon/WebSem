@@ -85,7 +85,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 
 <!-- Google Maps Javascript API v2 -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhbtcUlxb6W_AmG5RJzGUiEWlKkWIAZVg"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfJL3M19Gdb4RTyDED_H3dfSmpCJhblNo"></script>
 
 <!-- Local Bootstrap core JavaScript -->
 <script src="bootstrap-3.3.1/js/bootstrap.min.js"></script>
