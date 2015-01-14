@@ -22,7 +22,7 @@
 	    		<input type="color" class="form-control" id="color" name="color" value="<?php if(isset($_SESSION['email'])){ echo $_SESSION['couleur'];} else {echo 'black';} ?>" >
 			</div>
 			<div class="col-sm-2"> 
-				<input id="restart" type="button" class="btn btn-danger col-sm-12" value="Recommencer" />  			
+				<input id="restart" type="button" class="btn btn-danger col-sm-12" value="Recommencer" style="width:100%"/>  			
 			</div>
 			<div class="col-sm-2"> 
 	    		<input id="validate" type="submit" class="btn btn-success col-sm-12" value="Valider" style="width:100%"/> 
