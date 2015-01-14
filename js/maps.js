@@ -306,11 +306,72 @@ function initialize() {
             content: contentDonne
         });
 
-        var marker = new google.maps.Marker({
+        var intensiter = data.magnitude;
+
+        if(intensiter < 1 && intensiter < 3 ){
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                icon: {
+                    //iconBase + 'shaded_dot.png'
+                    fillOpacity: 0.5,
+                    fillColor: 'ff0000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 3.0,
+                    path: google.maps.SymbolPath.CIRCLE,
+                    strokeColor: "yellow",
+                    scale: 7},
+                title: data.title
+            });
+        }
+        else if(intensiter > 3 && intensiter < 4){
+            var marker = new google.maps.Marker({
             position: latLng,
             map: map,
+            icon: {
+                //iconBase + 'shaded_dot.png'
+                fillOpacity: 0.5,
+                fillColor: 'ff0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 3.0,
+                path: google.maps.SymbolPath.CIRCLE,
+                strokeColor: "orange",
+                scale: 12},
             title: data.title
-        });
+        });}
+
+        else if(intensiter > 4 && intensiter <5 ){
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                icon: {
+                    //iconBase + 'shaded_dot.png'
+                    fillOpacity: 0.5,
+                    fillColor: 'ff0000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 3.0,
+                    path: google.maps.SymbolPath.CIRCLE,
+                    strokeColor: "#DF7401",
+                    scale: 16},
+                title: data.title
+            });
+        }
+        else{
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                icon: {
+                    //iconBase + 'shaded_dot.png'
+                    fillOpacity: 0.5,
+                    fillColor: 'ff0000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 3.0,
+                    path: google.maps.SymbolPath.CIRCLE,
+                    strokeColor: "red",
+                    scale: 20},
+                title: data.title
+            });
+        }
 
         google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map,marker);
