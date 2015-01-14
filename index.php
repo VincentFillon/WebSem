@@ -96,5 +96,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
 
     <!-- JavaScript du projet -->
     <script src="js/global.js"></script>
+    <script src="js/pictionary.js"></script>
+    <script src="js/maps.js"></script>
 
 </html>
