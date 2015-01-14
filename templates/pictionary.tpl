@@ -38,6 +38,6 @@
 
 	    <input type="hidden" id="drawingCommands" name="drawingCommands"/>  
 	    <!-- à quoi servent ces champs hidden ? -->  
-	    <input type="hidden" id="picture" name="picture"/>
+	    <input type="hidden" id="picture" name="picture"/>	    
 	</form>  
 </div>
