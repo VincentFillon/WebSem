@@ -52,7 +52,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
             </div>
         </header>
         <section>
-            <div class="container">
+            <div class="container" id="Container">
                 <!-- Contenu importé depuis les differentes pages : "nom_page".tpl -->
                 <?php
 
@@ -96,5 +96,6 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
 
     <!-- JavaScript du projet -->
     <script src="js/global.js"></script>
+    <script src="js/pictionary.js"></script>
 
 </html>
