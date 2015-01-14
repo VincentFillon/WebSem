@@ -36,11 +36,13 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
         <header class="navbar" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a id="titre" class="navbar-brand" href="index.php?page=index.tpl">Pictionnary</a>
+                    <a id="titre" class="navbar-brand" href="index.php?page=index.tpl">Web Semantique</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <?php if ( isset($_SESSION['email']) ) { ?>
                         <form class="deconnexion" action="requetes/req_deconnexion.php" method="post" name="deconnexion">
+                            <a href="index.php?page=Maps.tpl" type="button" class="btn btn-default navbar-btn">Maps Seisme</a>
+                            <a href="index.php?page=pictionary.tpl" type="button" class="btn btn-default navbar-btn">Pictionary</a>
                             <button class="btn btn-default navbar-btn navbar-right" type="submit" onclick="logout()">Deconnexion</button>
                         </form>
                     <?php }
@@ -55,16 +57,6 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
             <div class="container" id="Container">
                 <!-- Contenu importé depuis les differentes pages : "nom_page".tpl -->
                 <?php
-
-                if ( isset($_SESSION['prenom'])) {
-                    echo 'Bonjour '.$_SESSION['prenom'].', ';
-                    ?>
-                    <br><br>
-                    <a href="index.php?page=Maps.tpl" type="button" class="btn btn-primary btn-lg">Accéder au Maps Seisme</a>
-                    <a href="index.php?page=pictionary.tpl" type="button" class="btn btn-primary btn-lg">Accéder au Pictionary</a>
-                <?php
-                }
-
                 if ( isset($page) ) {
                     include('templates/' . $page);
                 }
