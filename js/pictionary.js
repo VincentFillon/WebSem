@@ -93,8 +93,9 @@
         document.getElementById('validate').onclick = function() {  
             // la prochaine ligne transforme la liste de commandes en une chaîne de caractères, et l'ajoute en valeur au champs "drawingCommands" pour l'envoyer au serveur.  
             document.getElementById('drawingCommands').value = JSON.stringify(drawingCommands);  
-            console.log(document.getElementById('drawingCommands').value);
-
+            console.log("drawingCommands : "+document.getElementById('drawingCommands').value);
+            document.getElementById('picture').value = canvas.toDataURL();
+            console.log("picture : "+canvas.toDataURL());
             // ici, exportez le contenu du canvas dans un data url, et ajoutez le en valeur au champs "picture" pour l'envoyer au serveur.  
         };  
     };  

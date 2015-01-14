@@ -8,7 +8,7 @@
 
 
 <div class="row">
-	<form name="tools" action="req_paint.php" method="post">  
+	<form name="tools" action="requetes/req_paint.php" method="post">  
 	    <div class="form-group">
         	<label for="size" class="col-sm-1">Taille</label> 
         	<div class="col-sm-3">
@@ -24,9 +24,14 @@
 			<div class="col-sm-2"> 
 				<input id="restart" type="button" class="btn btn-danger col-sm-12" value="Recommencer" style="width:100%"/>  			
 			</div>
+			<label for="name" class="col-sm-1">Nom</label> 
+        	<div class="col-sm-3">
+	    		<input id="name" name="name" type="text" class="form-control" required>
+	    	</div>
 			<div class="col-sm-2"> 
 	    		<input id="validate" type="submit" class="btn btn-success col-sm-12" value="Valider" style="width:100%"/> 
 			</div>
+			
 		</div>
 	    <!-- ici, insérez un champs de type color avec id="color", et comme valeur l'attribut  de session couleur (à l'aide d'une commande php echo).
 	    ) --> 
