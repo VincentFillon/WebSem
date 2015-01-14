@@ -10,6 +10,3 @@
     <option value="3">niveau 4 à 4.9</option>
     <option value="4">niveau 5 et +</option>
 </select>
-
-
-
