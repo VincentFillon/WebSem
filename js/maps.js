@@ -304,6 +304,7 @@ function initialize() {
 
         var intensiter = data.magnitude;
 
+
         if(intensiter < 1 && intensiter < 3 ){
             var marker = new google.maps.Marker({
                 position: latLng,
@@ -370,6 +371,24 @@ function initialize() {
         }
 
         addInfoWindowToMarker(map, marker, contentDonne);
+    }
+}
+
+function visibleMarket(id){
+    if (id = 0){
+        return 0;
+    }
+    if(id=1){
+        return 1;
+    }
+    if(id=2){
+        return 2;
+    }
+    if(id=3){
+        return 3;
+    }
+    if(id=4){
+        return 4;
     }
 }
 

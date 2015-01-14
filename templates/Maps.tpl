@@ -3,16 +3,13 @@
 
 <h3>Triez l'affichage pour ne voir que les magnitudes qui vous intéressent : </h3>
 
-<select class="form-control" onchange="alert('Id choisi = '+this.value)">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9+">9 et +</option>
+<select class="form-control" onchange="visibleMarket(this.value)">
+    <option value="0">Tout afficher</option>
+    <option value="1">niveau 0 à 2.9</option>
+    <option value="2">niveau 3 à 3.9</option>
+    <option value="3">niveau 4 à 4.9</option>
+    <option value="4">niveau 5 et +</option>
 </select>
+
 
 
