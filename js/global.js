@@ -177,6 +177,12 @@ function testAPI() {
     });
 }
 
+function logout() {
+    FB.logout(function(response) {
+        // user is now logged out
+    });
+}
+
 // ================================ Pictionary Canvas ================================
 // les quatre tailles de pinceau possible.  
     var sizes=[8,20,44,90];  
@@ -275,12 +281,7 @@ function testAPI() {
 
             // ici, exportez le contenu du canvas dans un data url, et ajoutez le en valeur au champs "picture" pour l'envoyer au serveur.  
         };  
-    };  
-function logout() {
-    FB.logout(function(response) {
-        // user is now logged out
-    });
-}
+    };
 
 
 // GOOGLE MAPS
