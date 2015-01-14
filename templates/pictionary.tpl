@@ -1,4 +1,18 @@
-<?php require_once("requetes/req_paintRecup.php"); ?>
+<?php 
+if(isset($_GET['id'])){
+	include('../config/connexionBDD.php');
+	$sql = $dbh->query("SELECT d.name, d.drawingCommands, d.picture FROM drawings d WHERE d.id=".$_GET['id']);
+    if ($sql->rowCount()<1) {
+        header("Location: ../index.php?erreur=".urlencode("un problème est survenu"));
+    }
+    else {
+        $sqlfetch = $sql->fetch();
+        $name = $sqlfetch['name'];
+        $drawingCommands = $sqlfetch['drawingCommands'];
+        $picture = $sqlfetch['picture'];
+    }
+}
+?>
 
 <div class="row" id="sizeCanvas">
 	<div class="col-sm-12">
@@ -28,7 +42,7 @@
 			</div>
 			<label for="name" class="col-sm-1">Nom</label> 
         	<div class="col-sm-3">
-	    		<input id="name" name="name" type="text" class="form-control" required>
+	    		<input id="name" name="name" type="text" class="form-control" value="<?php if(isset($_GET['id'])) echo $name; ?>" required>
 	    	</div>
 			<div class="col-sm-2"> 
 	    		<input id="validate" type="submit" class="btn btn-success col-sm-12" value="Valider" style="width:100%"/> 
@@ -38,8 +52,8 @@
 	    <!-- ici, insérez un champs de type color avec id="color", et comme valeur l'attribut  de session couleur (à l'aide d'une commande php echo).
 	    ) --> 
 
-	    <input type="text" id="drawingCommands" name="drawingCommands" value="<?php if(isset($_GET['id'])) getDrawingCommands($_GET['id']); ?>"/>  
+	    <input type="text" id="drawingCommands" name="drawingCommands" value="<?php if(isset($_GET['id'])) echo $drawingCommands; ?>"/>  
 	    <!-- à quoi servent ces champs hidden ? -->  
-	    <input type="text" id="picture" name="picture" value="<?php if(isset($_GET['id'])) getPicture($_GET['id']); ?>" />	    
+	    <input type="text" id="picture" name="picture" value="<?php if(isset($_GET['id'])) echo $picture; ?>" />	    
 	</form>  
 </div>

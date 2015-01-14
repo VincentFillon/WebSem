@@ -30,7 +30,7 @@
         } : null;
     }
 
-    window.onload = function() {  
+    window.onload = function() { 
         var canvas = document.getElementById('canvasPictionary'); 
         var context = canvas.getContext('2d');
         canvas.width = document.getElementById('sizeCanvas').offsetWidth;  
