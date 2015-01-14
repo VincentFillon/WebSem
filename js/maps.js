@@ -294,17 +294,13 @@ function initialize() {
         var data = json[i];
         var latLng = new google.maps.LatLng(data.latitude, data.longitude);
 
-        var contentDonne = '<div id="content" style="color: #000000">'+
+        var contentDonne = '<div style="color: #000000; width:700px;height:200px">'+
             '<h1 id="firstHeading" class="firstHeading">'+data.title+'</h1>'+
             '<div id="bodyContent">'+'<br>'+
             '<p><b>'+data.title+'</br>Localisation : '+data.location +'<p>Magnitude : '+data.magnitude+'</p>'+data.date_time+''+
             '</div>'+
             '</div>';
 
-        //infobulle
-        var infowindow = new google.maps.InfoWindow({
-            content: contentDonne
-        });
 
         var intensiter = data.magnitude;
 
@@ -373,9 +369,16 @@ function initialize() {
             });
         }
 
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map,marker);
-        });
+        addInfoWindowToMarker(map, marker, contentDonne);
     }
+}
+
+function addInfoWindowToMarker(map, marker, content_bulle) {
+    var infoWindow = new google.maps.InfoWindow({
+        content: content_bulle
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.open(map,this)
+    });
 }
 google.maps.event.addDomListener(window, 'load', initialize);
