@@ -4,6 +4,7 @@
     // la taille, l'epaisseur et la couleur du pinceau  
     var size = 8;
     var color;
+    var fill;
     var transparent = 0.8;
     var thick = 1;
     // la dernière position du stylo  
@@ -22,6 +23,12 @@
         // on récupère la valeur du champs couleur  
         color = document.getElementById('color').value;  
         console.log("color:" + color);  
+    }
+
+    var setFill = function() {  
+        // on récupère la valeur du champs couleur  
+        fill = document.getElementById('fill').value;  
+        console.log("fill:" + fill);  
     }
 
     var setTransparent = function() {  
@@ -61,10 +68,12 @@
         setSize();
         setThick();
         setColor();
+        setFill();
         setTransparent();
         document.getElementById('size').onchange = setSize;
         document.getElementById('thick').onchange = setThick; 
-        document.getElementById('color').onchange = setColor; 
+        document.getElementById('color').onchange = setColor;
+        document.getElementById('fill').onchange = setFill;
         document.getElementById('transparent').onchange = setTransparent; 
 
         var isDrawing = false;  
@@ -74,20 +83,22 @@
             // crér un nouvel objet qui représente une commande de type "start", avec la position, la couleur  
             var command = {};  
             command.command="start";  
-            command = {"command":"start", "x": (e.x - document.getElementById('Container').offsetLeft - document.getElementById('canvasPictionary').offsetLeft), "y":(e.y - document.getElementById('Container').offsetTop), "size" : size, "thick" : thick ,"color" : {"r" : hexToRgb(color).r, "g" : hexToRgb(color).g, "b" : hexToRgb(color).b, "a" : transparent}};  
+            command = {"command":"start", "x": (e.x - document.getElementById('Container').offsetLeft - document.getElementById('canvasPictionary').offsetLeft), "y":(e.y - document.getElementById('Container').offsetTop), "size" : size, "thick" : thick ,"color" : { "border" : {"r" : hexToRgb(color).r, "g" : hexToRgb(color).g, "b" : hexToRgb(color).b, "a" : transparent}, "fill" : {"r" : hexToRgb(fill).r, "g" : hexToRgb(fill).g, "b" : hexToRgb(fill).b, "a" : transparent}}};  
             // Ce genre d'objet Javascript simple est nommé JSON. Pour apprendre ce qu'est le JSON, c.f. http://blog.xebia.fr/2008/05/29/introduction-a-json/  
 
 
             // on l'ajoute à la liste des commandes  
             drawingCommands.push(command);
 
-            console.log("Taille : "+command.size+ " Epaisseur : "+command.thick+" Couleur : " + "rgba("+command.color.r+","+command.color.g+","+command.color.b+","+command.color.a+")" + " x : "+ command.x + " y : "+ command.y);            
-
+            console.log("Taille : "+command.size+ " Epaisseur : "+command.thick+" Couleur : " + "rgba("+command.color.border.r+","+command.color.border.g+","+command.color.border.b+","+command.color.border.a+")" + " x : "+ command.x + " y : "+ command.y);            
+            console.log("remplissage : " + "rgba("+command.color.fill.r+","+command.color.fill.g+","+command.color.fill.b+","+command.color.fill.a+")")
 
             context.beginPath();
-            context.lineWidth=command.thick; // Epaisseur
-            context.strokeStyle="rgba("+command.color.r+","+command.color.g+","+command.color.b+","+command.color.a+")"; // Couleur bordure
             context.arc(command.x, command.y, command.size, 0, 2 * Math.PI); // Taille du cercle
+            context.lineWidth=command.thick; // Epaisseur
+            context.strokeStyle="rgba("+command.color.border.r+","+command.color.border.g+","+command.color.border.b+","+command.color.border.a+")"; // Couleur bordure
+            context.fillStyle="rgba("+command.color.fill.r+","+command.color.fill.g+","+command.color.fill.b+","+command.color.fill.a+")"; // Couleur remplissage
+            context.fill();
             context.stroke();
             // ici, dessinez un cercle de la bonne couleur, de la bonne taille, et au bon endroit.   
 
