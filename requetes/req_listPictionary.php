@@ -19,10 +19,11 @@ try {
             header("Location: ../index.php?erreur=".urlencode("un problème est survenu"));
         }
         else {
-            $sqlfetch = $sql->fetch();
             for ($i = 0; $i < $sql->rowCount(); $i++){
+                $sqlfetch = $sql->fetch();
                 $id = $sqlfetch['id'];
-                echo '<option value="'.$id.'">'.$id.'</option>';
+                $name = $sqlfetch['name'];
+                echo '<option value="'.$id.'">'.$name.'</option>';
             }
         }
 } 

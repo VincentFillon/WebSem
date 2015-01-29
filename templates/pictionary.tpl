@@ -98,12 +98,12 @@ if(isset($_GET['id'])){
 		    				<label for="previsualisation" class="col-sm-2">Prévisualisation</label> 
 		    			</div>
 		    			<div class="row">
-		    				<select multiple class="form-control">
+		    				<select id="selectPict" multiple class="form-control">
 		    					<?php include('requetes/req_listPictionary.php'); ?>
 		    				</select>
 		    			</div>
 		    			<div class="row">
-		    				<input id="visualiser" type="button" class="btn btn-success col-sm-12" value="Visualiser" style="width:100%"/> 
+		    				<input id="visualiser" type="button" class="btn btn-success col-sm-12" value="Visualiser" style="width:100%" OnClick="window.location.href='index.php?page=pictionary.tpl&id='+document.getElementById('selectPict').value"/> 
 		    			</div>
 					</div>
 					<div class="col-sm-6" style="margin-top:20px;"> 
