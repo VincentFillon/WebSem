@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="MySQL - websemantique@localhost" uuid="05908796-05d7-4185-b209-ca92f762da5a">
+    <data-source name="MySQL - pictionary@localhost" uuid="05908796-05d7-4185-b209-ca92f762da5a">
       <secret-storage>master_key</secret-storage>
       <user-name>test</user-name>
       <schema-pattern>websemantique.*</schema-pattern>
