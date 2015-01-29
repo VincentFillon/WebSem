@@ -23,6 +23,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
 
         <!-- Local Bootstrap core CSS -->
         <link href="bootstrap-3.3.1/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
         <!-- CDM Bootstrap core CSS
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">

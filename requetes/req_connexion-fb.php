@@ -9,6 +9,7 @@
 //inclusion du fichier connexion base de données
 include('../config/connexionBDD.php');
 
+$authToken = stripslashes($_POST['authToken']);
 $email=stripslashes($_POST['email-fb']);
 $nom = stripslashes($_POST['nom-fb']);
 $prenom = stripslashes($_POST['prenom-fb']);
@@ -44,6 +45,7 @@ try {
             $_SESSION['email'] = $sqlfetch['email'];
             $_SESSION['nom'] = $sqlfetch['nom'];
             $_SESSION['prenom'] = $sqlfetch['prenom'];
+            $_SESSION['authToken'] = $authToken;
         }
 
         header("Location: ../index.php?page=index.tpl");

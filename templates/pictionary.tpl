@@ -109,6 +109,7 @@ if(isset($_GET['id'])){
 					<div class="col-sm-6" style="margin-top:20px;"> 
 		    			<img id="previsualisation" src='<?php if(isset($_GET['id'])) echo $picture; ?>' style="width:100%; background:white;"/> 
 					</div>
+
 				</div>
 
 		    	
@@ -120,9 +121,16 @@ if(isset($_GET['id'])){
 
 		    <input type="text" id="drawingCommands" name="drawingCommands" value='<?php if(isset($_GET['id'])) echo $drawingCommands; ?>'/>  
 		    <!-- à quoi servent ces champs hidden ? -->  
-		    <input type="text" id="picture" name="picture" value='<?php if(isset($_GET['id'])) echo $picture; ?>' />	    
+		    <input type="text" id="picture" name="picture" value='<?php if(isset($_GET['id'])) echo $picture; ?>' />
+			<!-- Share div -->
+			<div class="share_div">
+				<div class="form-group">
+					<div class="input-group col-sm-10">
+						<input type="text" class="form-control" id="share" name="share" placeholder="Message associé au post facebook :" >
+					</div>
+					<button class="btn btn-primary" id="poster" href="#" <?php echo 'onclick="PostImageToFacebook(\'' . $_SESSION['authToken'] . '\')"'; ?> ><i class="fa fa-facebook-official"></i> Partager sur Facebook</button>
+				</div>
+			</div>
 		</form>  
 	</div>
-
-
 </div>
