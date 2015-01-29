@@ -1,6 +1,6 @@
 <?php 
+include('config/connexionBDD.php');
 if(isset($_GET['id'])){
-	include('config/connexionBDD.php');
 	$sql = $dbh->query("SELECT d.name, d.drawingCommands, d.picture FROM drawings d WHERE d.id=".$_GET['id']);
     if ($sql->rowCount()<1) {
         header("Location: ../index.php?erreur=".urlencode("un problème est survenu"));
