@@ -1,4 +1,5 @@
 <?php 
+
 include('config/connexionBDD.php');
 if(isset($_GET['id'])){
 	$sql = $dbh->query("SELECT d.name, d.drawingCommands, d.picture FROM drawings d WHERE d.id=".$_GET['id']);
@@ -97,7 +98,7 @@ if(isset($_GET['id'])){
 		    			</div>
 		    			<div class="row">
 		    				<select multiple class="form-control">
-		    					<?php include('requetes/req_listPictionary.php'); ?>		    					
+		    					<?php include('requetes/req_listPictionary.php'); ?>
 		    				</select>
 		    			</div>
 		    			<div class="row">
