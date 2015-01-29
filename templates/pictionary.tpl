@@ -1,6 +1,7 @@
 <?php 
 
 include('config/connexionBDD.php');
+
 if(isset($_GET['id'])){
 	$sql = $dbh->query("SELECT d.name, d.drawingCommands, d.picture FROM drawings d WHERE d.id=".$_GET['id']);
     if ($sql->rowCount()<1) {
