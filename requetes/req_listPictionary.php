@@ -15,10 +15,7 @@ $idUser=$_SESSION['id'];
 
 try {
         $sql = $dbh->query("SELECT * FROM drawings WHERE idUser='".$idUser."'");
-        if ($sql->rowCount()<1) {
-            header("Location: ../index.php?erreur=".urlencode("un problème est survenu"));
-        }
-        else {
+        if ($sql->rowCount()>=1) {
             for ($i = 0; $i < $sql->rowCount(); $i++){
                 $sqlfetch = $sql->fetch();
                 $id = $sqlfetch['id'];
