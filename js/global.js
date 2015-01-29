@@ -175,6 +175,32 @@ function testAPI() {
 
         document.forms["connexion-fb"].submit();
     });
+    /*var wallPost = {
+        message : "testing...",
+        picture: "http://localhost/WebSem/img/super_dev.png"
+    };
+    FB.api('/me/feed', 'post', wallPost , function(response) {
+        if (!response || response.error) {
+            alert('Error occured');
+        } else {
+            alert('Post ID: ' + response);
+        }
+    });*/
+}
+
+function share (message/*, object*/){
+    var wallPost = {
+        message : message,
+        picture: "http://localhost/WebSem/img/super_dev.png" //object
+    };
+    FB.api('/me/feed', 'post', wallPost, function(response) {
+        if (!response || response.error) {
+            console.log(response);
+            alert('Error occured');
+        } else {
+            alert('Post ID: ' + response.id);
+        }
+    });
 }
 
 function logout() {

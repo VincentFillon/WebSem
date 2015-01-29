@@ -33,6 +33,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
     </head>
 
     <body>
+        <div id="fb-root"></div>
         <header class="navbar" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -68,6 +69,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
         </section>
         <footer>
             LPSIL IDSE - WebSemantique - Projet Pictionnary - Année 2014 / 2015 - FILLON Vincent & Pacheco Mélanie & Passé Valentin
+            <a href="index.php?page=privacy_policy.tpl">Politique de confidentialité</a>
         </footer>
     </body>
 
