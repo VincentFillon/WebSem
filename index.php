@@ -27,10 +27,12 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
 
         <!-- CDM Bootstrap core CSS
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-        -->
+
 
         <!-- Custom styles for this template -->
         <link href="style/global.css" rel="stylesheet">
+
+
     </head>
 
     <body>
@@ -85,6 +87,8 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
     <!-- Local Bootstrap core JavaScript -->
     <script src="bootstrap-3.3.1/js/bootstrap.min.js"></script>
 
+
+
     <!-- CDN Bootstrap core JavaScript :
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     -->
@@ -93,5 +97,6 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
     <script src="js/global.js"></script>
     <script src="js/pictionary.js"></script>
     <script src="js/maps.js"></script>
+
 
 </html>

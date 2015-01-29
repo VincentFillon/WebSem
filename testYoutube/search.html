@@ -1,34 +1,15 @@
-<h1>Ci Dessous Les Différents Seismes Répertoriés En 2015</h1>
-<div id="map-canvas" style="width: 100%; height: 500px"></div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geo Search Tool</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="js/search.js"></script>
+</head>
 
-<h3>Triez l'affichage pour ne voir que les magnitudes qui vous intéressent : </h3>
-
-<select class="form-control" onchange="visibleMarket(this.value)">
-    <option value="0">Tout afficher</option>
-    <option value="1">niveau 0 à 2.9</option>
-    <option value="2">niveau 3 à 3.9</option>
-    <option value="3">niveau 4 à 4.9</option>
-    <option value="4">niveau 5 et +</option>
-</select>
-
-<h3>Triez Par Mois pour l'années 2015 :</h3>
-<select class="form-control" onchange="visibleMarket(this.value)">
-    <option value="0">Tout afficher</option>
-    <option value="1">Janvier</option>
-    <option value="2">Février</option>
-    <option value="3">Mars</option>
-    <option value="4">Avril</option>
-    <option value="5">Mai</option>
-    <option value="6">Juin</option>
-    <option value="7">Juillet</option>
-    <option value="8">Août</option>
-    <option value="9">Septembre</option>
-    <option value="10">Octobre</option>
-    <option value="11">Novembre</option>
-    <option value="12">Décembre</option>
-</select>
-
-<form action="javascript:clickedSearchButton()">
+<body>
+<form id="jt_search_form" action="javascript:clickedSearchButton()">
     <table>
         <tr>
             <td width='1050' align="right" valign="top">
@@ -112,6 +93,12 @@
                             <td id='customRangeSection_9'>* use mm-dd-yyyy format</td>
                         </tr>
                     </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan='3' align='right'>
+                    <a id="showFiltersLink" href="javascript:showSearchFilters();">Show Advanced Search</a>
+                    <a id="hideFiltersLink" href="javascript:hideSearchFilters();">Hide Advanced Search</a>
                 </td>
             </tr>
         </table>
@@ -202,5 +189,10 @@
                 <table id='tableOfVideoContentResults'></table>
             </div>
         </td>
+        <td valign='top'>
+            <div id="map-canvas"></div>
+        </td>
     </tr>
 </table>
+</body>
+</html>
