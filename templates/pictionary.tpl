@@ -119,18 +119,19 @@ if(isset($_GET['id'])){
 		    <!-- ici, insérez un champs de type color avec id="color", et comme valeur l'attribut  de session couleur (à l'aide d'une commande php echo).
 		    ) --> 
 
-		    <input type="text" id="drawingCommands" name="drawingCommands" value='<?php if(isset($_GET['id'])) echo $drawingCommands; ?>'/>  
+		    <input type="text" id="drawingCommands" name="drawingCommands" value='<?php if(isset($_GET['id'])) echo $drawingCommands; ?>' hidden/>  
 		    <!-- à quoi servent ces champs hidden ? -->  
-		    <input type="text" id="picture" name="picture" value='<?php if(isset($_GET['id'])) echo $picture; ?>' />
-			<!-- Share div -->
-			<div class="share_div">
-				<div class="form-group">
-					<div class="input-group col-sm-10">
-						<input type="text" class="form-control" id="share" name="share" placeholder="Message associé au post facebook :" >
-					</div>
-					<button class="btn btn-primary" id="poster" href="#" <?php echo 'onclick="PostImageToFacebook(\'' . $_SESSION['authToken'] . '\')"'; ?> ><i class="fa fa-facebook-official"></i> Partager sur Facebook</button>
-				</div>
-			</div>
+		    <input type="text" id="picture" name="picture" value='<?php if(isset($_GET['id'])) echo $picture; ?>' hidden />
 		</form>  
+		<!-- Share div -->
+		<div class="share_div">
+			<div class="form-group">
+				<div class="input-group col-sm-10">
+					<input type="text" class="form-control" id="share" name="share" placeholder="Message associé au post facebook :" >
+				</div>
+				<button class="btn btn-primary" id="poster" href="#" <?php echo 'onclick="PostImageToFacebook(\'' . $_SESSION['authToken'] . '\')"'; ?> ><i class="fa fa-facebook-official"></i> Partager sur Facebook</button>
+			</div>
+		</div>
+		
 	</div>
 </div>

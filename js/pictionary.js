@@ -123,8 +123,10 @@
         canvas.onmousemove = draw;  
 
         document.getElementById('restart').onclick = function() {  
-            console.log("clear");  
+            console.log("clear");
             context.clearRect ( 0 , 0 , canvas.width, canvas.height );
+            drawingCommands = [];
+            
             console.log(document.getElementById('drawingCommands').value);
         };  
 
