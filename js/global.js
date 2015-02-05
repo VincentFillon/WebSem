@@ -10,7 +10,7 @@ validateMdp2 = function() {
     } else {
         document.getElementById('mdp2').setCustomValidity('Les mots de passes doivent être identiques.');
     }
-}
+};
 
 computeAge = function() {
     try{
@@ -91,52 +91,24 @@ loadProfilePic = function () {
     reader.readAsDataURL(file);
 };
 
-// Load the SDK asynchronously
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+// ================================================================================================= //
 
-window.fbAsyncInit = function() {
-    FB.init({
-        appId      : '592908420852975',
-        cookie     : true,  // enable cookies to allow the server to access the session
-        xfbml      : true,  // parse social plugins on this page
-        version    : 'v2.1' // use version 2.1
-    });
 
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
-};
 
-function logout() {
-    FB.logout();
-}
 
- // This function is called when someone finishes with the Login
- // Button.
- function checkLoginState() {
-     FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-     });
- }
+// ========================================================================================== //
 
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
     if (response.status === 'connected') {
         // Logged into your app and Facebook.
-        FB.login(function (response) {
-            if (response.authResponse) {
-                document.getElementById("authToken").value = response.authResponse.accessToken;
-            }
-        }, {
-            scope: 'public_profile, email, publish_actions, publish_stream'
-        });
-        connexionFB();
+        connexionFB(response.authResponse.accessToken);
     } else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
         document.getElementById('status').innerHTML = 'Please log ' +
@@ -149,66 +121,101 @@ function statusChangeCallback(response) {
     }
 }
 
-function connexionFB () {
+// This function is called when someone finishes with the Login
+// Button.  See the onlogin handler attached to it in the sample
+// code below.
+function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+}
+
+window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '592908420852975',
+        cookie     : true,  // enable cookies to allow the server to access
+                            // the session
+        xfbml      : true,  // parse social plugins on this page
+        version    : 'v2.1' // use version 2.1
+    });
+
+    // Now that we've initialized the JavaScript SDK, we call
+    // FB.getLoginStatus().  This function gets the state of the
+    // person visiting this page and can return one of three states to
+    // the callback you provide.  They can be:
+    //
+    // 1. Logged into your app ('connected')
+    // 2. Logged into Facebook, but not your app ('not_authorized')
+    // 3. Not logged into Facebook and can't tell if they are logged into
+    //    your app or not.
+    //
+    // These three cases are handled in the callback function.
+
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+};
+
+// Load the SDK asynchronously
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+
+function connexionFB (accessToken) {
     FB.api('/me', function(response) {
         document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
 
-        var name = response.name.split(" ");
-
+        document.getElementById("authToken").value = accessToken;
         document.getElementById("email-fb").value = response.email;
-        document.getElementById("nom-fb").value = name[1];
-        document.getElementById("prenom-fb").value = name[0];
+        document.getElementById("nom-fb").value = response.last_name;
+        document.getElementById("prenom-fb").value = response.first_name;
+        document.getElementById("form_connexion-fb").submit();
+    });
+}
 
-        document.forms["connexion-fb"].submit();
+function logout() {
+    FB.logout(function(response) {
+        // Person is now logged out
     });
 }
 
 // Post a BASE64 Encoded PNG Image to facebook
-function PostImageToFacebook(authToken) {
-    var imageData = document.getElementById("picture").value;
-    try {
-        blob = dataURItoBlob(imageData);
-    } catch (e) {
-        console.log(e);
-    }
+function PostImageToFacebook(accessToken) {
+    var dataUrl = document.getElementById("picture").value;
+    var imgdata = dataUrl.match(/data:(image\/.+);base64,(.+)/);
+    try{
+        blob = dataURItoBlob(imgdata[2], imgdata[1]);
+    }catch(e){ console.log(e); }
     var fd = new FormData();
-    fd.append("access_token", authToken);
+    // set your FB accessToken
+    fd.append("access_token", accessToken);
     fd.append("source", blob);
-    fd.append("message", document.getElementById("share").value);
-    try {
-        $.ajax({
-            url: "https://graph.facebook.com/me/photos?access_token=" + authToken,
-            type: "POST",
-            data: fd,
-            processData: false,
-            contentType: false,
-            cache: false,
-            success: function (data) {
-                console.log("success " + data);
-            },
-            error: function (shr, status, data) {
-                console.log("error " + data + " Status " + shr.status);
-            },
-            complete: function () {
-                console.log("Posted to facebook");
-            }
-        });
+    fd.append("message", "My Photo Description");
 
-    } catch (e) {
-        console.log(e);
-    }
-}
-
-// Convert a data URI to blob
-function dataURItoBlob(dataURI) {
-    var byteString = atob(dataURI.split(',')[1]);
-    var ab = new ArrayBuffer(byteString.length);
-    var ia = new Uint8Array(ab);
-    for (var i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
-    }
-    return new Blob([ab], {
-        type: 'image/png'
+    $.ajax({
+        url:"https://graph.facebook.com/me/photos?access_token=" + accessToken,
+        type: "POST",
+        data: fd,
+        processData: false,
+        contentType: false,
+        cache: false
     });
 }
 
+function dataURItoBlob(dataURI, mime) {
+    var byteString = window.atob(dataURI);
+    var ia = new Uint8Array(byteString.length);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+
+    return blob = new Blob([ia],
+        {
+            type: mime
+        });
+}
