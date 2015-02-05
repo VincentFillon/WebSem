@@ -46,6 +46,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
                     <?php if ( isset($_SESSION['email']) ) { ?>
                         <form class="deconnexion" action="requetes/req_deconnexion.php" method="post" name="deconnexion">
                             <a href="index.php?page=Maps.tpl" type="button" class="btn btn-default navbar-btn">Maps Seisme</a>
+                            <a href="search.html" type="button" class="btn btn-default navbar-btn">Youtube</a>
                             <a href="index.php?page=pictionary.tpl" type="button" class="btn btn-default navbar-btn">Pictionary</a>
                             <button class="btn btn-default navbar-btn navbar-right" type="submit" onclick="logout()">Deconnexion</button>
                         </form>
@@ -97,6 +98,7 @@ $page = (isset($_GET['page'])) ? htmlentities($_GET['page']) : NULL;
     <script src="js/global.js"></script>
     <script src="js/pictionary.js"></script>
     <script src="js/maps.js"></script>
+
 
 
 </html>

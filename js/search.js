@@ -1,7 +1,5 @@
 /**
  * Created by melanie on 29/01/2015.
- *//**
- * Created by melanie on 29/01/2015.
  */
 //Define a Global variables
 
@@ -98,7 +96,7 @@ function searchYouTube() {
                             order: "date",
                             type: 'video',
                             part: 'snippet',
-                            maxResults: '50',
+                            maxResults: '5',
                             eventType: 'live',
                             videoLiscense: inputObject.videoLiscense,
                             videoEmbeddable: inputObject.videoEmbeddable,
@@ -120,7 +118,7 @@ function searchYouTube() {
                             order: "date",
                             type: 'video',
                             part: 'snippet',
-                            maxResults: '50',
+                            maxResults: '5',
                             videoLiscense: inputObject.videoLiscense,
                             videoEmbeddable: inputObject.videoEmbeddable,
                             channelId: inputObject.currentChannel,
@@ -147,7 +145,7 @@ function searchYouTube() {
                         order: "date",
                         type: 'video',
                         part: 'snippet',
-                        maxResults: '50',
+                        maxResults: '5',
                         eventType: 'live',
                         videoLiscense: inputObject.videoLiscense,
                         videoEmbeddable: inputObject.videoEmbeddable,
@@ -169,7 +167,7 @@ function searchYouTube() {
                         order: "date",
                         type: 'video',
                         part: 'snippet',
-                        maxResults: '50',
+                        maxResults: '5',
                         videoLiscense: inputObject.videoLiscense,
                         videoEmbeddable: inputObject.videoEmbeddable,
                         publishedAfter: publishAfterTime,
@@ -702,45 +700,45 @@ function showErrorSection() {
  *  @param inputLat {string} - input latitude
  *  @param inputLong {string} - input longitude
  */
-//function initializeMap(inputLat, inputLong) {
-//    var mapOptions = {
-//        center: new google.maps.LatLng(inputLat, inputLong),
-//        zoom: parseInt(INITIAL_ZOOM_LEVEL)
-//    };
-//
-//    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-//
-//    //iterate through all the search results and create map markers for each
-//    for (var i = 0; i < finalResults2.length; i++) {
-//        var imageNumber = i + 1
-//
-//        //use canned images from image folder for markers
-//        var image = { url: 'images/redMarker_' + imageNumber + '.png', size: new google.maps.Size(75, 62), origin: new google.maps.Point(0, 0)};
-//
-//        var latLong = new google.maps.LatLng(finalResults2[i].lat, finalResults2[i].long);
-//
-//        //create the marker on the map object
-//        var searchResultMarker = new google.maps.Marker({
-//            position: latLong,
-//            map: map,
-//            icon: image,
-//            animation: google.maps.Animation.DROP,
-//            labelContent: imageNumber,
-//            labelAnchor: new google.maps.Point(100, 100),
-//            labelClass: "labels",
-//            labelInBackground: false,
-//            url: finalResults2[i].url,
-//            title: finalResults2[i].title,
-//            zIndex: imageNumber,
-//            key: API_ACCESS_KEY
-//        });
-//
-//        //Clicking on the marker will open the video in a new window
-//        google.maps.event.addListener(searchResultMarker, 'click', function() {
-//            window.open(this.url);
-//        });
-//    }
-//}
+function initializeMap(inputLat, inputLong) {
+    var mapOptions = {
+        center: new google.maps.LatLng(inputLat, inputLong),
+        zoom: parseInt(INITIAL_ZOOM_LEVEL)
+    };
+
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+    //iterate through all the search results and create map markers for each
+    for (var i = 0; i < finalResults2.length; i++) {
+        var imageNumber = i + 1
+
+        //use canned images from image folder for markers
+        var image = { url: 'images/redMarker_' + imageNumber + '.png', size: new google.maps.Size(75, 62), origin: new google.maps.Point(0, 0)};
+
+        var latLong = new google.maps.LatLng(finalResults2[i].lat, finalResults2[i].long);
+
+        //create the marker on the map object
+        var searchResultMarker = new google.maps.Marker({
+            position: latLong,
+            map: map,
+            icon: image,
+            animation: google.maps.Animation.DROP,
+            labelContent: imageNumber,
+            labelAnchor: new google.maps.Point(100, 100),
+            labelClass: "labels",
+            labelInBackground: false,
+            url: finalResults2[i].url,
+            title: finalResults2[i].title,
+            zIndex: imageNumber,
+            key: API_ACCESS_KEY
+        });
+
+        //Clicking on the marker will open the video in a new window
+        google.maps.event.addListener(searchResultMarker, 'click', function() {
+            window.open(this.url);
+        });
+    }
+}
 
 /**  Show the Custom Date Range Sections
  */
@@ -803,7 +801,7 @@ function getLocationSearchResults() {
                                 order: "date",
                                 type: 'video',
                                 part: 'snippet',
-                                maxResults: '50',
+                                maxResults: '5',
                                 eventType: 'live',
                                 videoLiscense: inputObject.videoLiscense,
                                 videoEmbeddable: inputObject.videoEmbeddable,
@@ -827,7 +825,7 @@ function getLocationSearchResults() {
                                 order: "date",
                                 type: 'video',
                                 part: 'snippet',
-                                maxResults: '50',
+                                maxResults: '5',
                                 videoLiscense: inputObject.videoLiscense,
                                 videoEmbeddable: inputObject.videoEmbeddable,
                                 channelId: inputObject.currentChannel,
@@ -856,7 +854,7 @@ function getLocationSearchResults() {
                             order: "date",
                             type: "video",
                             part: "id,snippet",
-                            maxResults: "50",
+                            maxResults: "5",
                             eventType: "live",
                             videoLiscense: inputObject.videoLiscense,
                             videoEmbeddable: inputObject.videoEmbeddable,
@@ -881,7 +879,7 @@ function getLocationSearchResults() {
                             part: "id,snippet",
                             location: inputObject.inputLat + "," + inputObject.inputLong,
                             locationRadius: inputObject.inputLocationRadius,
-                            maxResults: "50",
+                            maxResults: "5",
                             videoLiscense: inputObject.videoLiscense,
                             videoEmbeddable: inputObject.videoEmbeddable,
                             publishedAfter: publishAfterTime,

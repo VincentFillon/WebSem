@@ -306,43 +306,43 @@ function initialize(value) {
         if (val == '1'){
             var one = true;
             var two = true;
-            var trois = true;
+            var trois = true;/*
             console.log(value);
             console.log(val);
             console.log(one);
             console.log(two);
-            console.log(trois);
+            console.log(trois);*/
         }
         else if (val == '2'){
             var one = true;
             var two = false;
             var trois = false;
-            console.log(value);
+            /*console.log(value);
             console.log(val);
             console.log(one);
             console.log(two);
-            console.log(trois);
+            console.log(trois);*/
         }
         else if (val == '3'){
             var one = false;
             var two = true;
             var trois = false;
-            console.log(value);
+            /*console.log(value);
             console.log(val);
             console.log(one);
             console.log(two);
-            console.log(trois);
+            console.log(trois);*/
 
         }
         else if (val == '4'){
             var one = false;
             var two = false;
             var trois = true;
-            console.log(value);
+            /*console.log(value);
             console.log(val);
             console.log(one);
             console.log(two);
-            console.log(trois);
+            console.log(trois);*/
         }
 
         var intensiter = data.magnitude;
@@ -448,7 +448,7 @@ function addInfoWindowToMarker(map, marker, content_bulle) {
     google.maps.event.addListener(marker, 'click', function() {
         infoWindow.open(map,this);
         //clickedSearchButton();
-        searchYouTube(marker);
+        //searchYouTube(marker, this);
     });
 }
 
@@ -844,8 +844,8 @@ function handleAPILoaded() {
 }
 
 // Search for a specified string.
-function search() {
-    var q = $('#query').val();
+function search(marker) {
+    var q = $('#query').val(marker);
     var request = gapi.client.youtube.search.list({
         q: q,
         part: 'snippet'
